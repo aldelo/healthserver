@@ -4,7 +4,7 @@ web_server:
   # optional, true or false, indicates if web server running in debug mode, default = false
   ws_debug: false
   # required, web server tcp port, default = 8080
-  ws_port: 8080
+  ws_port: 8081
   # optional, web server tls server certificate pem file path, default = blank
   ws_server_pem:
   # optional, web server tls server certificate key file path, default = blank
@@ -120,9 +120,9 @@ routes:
   # optional, web server routes level middleware configurations, default = empty list
   - route_group_name: base                    # base = web server root folder; other values = web server route group name
     jwt_auth_secured: false                   # indicates if this route group is jwt auth secured (assume jwt auth is setup)
-    max_concurrent_request_limit: 100         # max hit rate limit, 0 = turn off
-    per_client_ip_qps: 100                    # per client ip qps rate limit, 0 = turn off
-    per_client_ip_burst: 100
+    max_concurrent_request_limit: 250         # max hit rate limit, 0 = turn off
+    per_client_ip_qps: 250                    # per client ip qps rate limit, 0 = turn off
+    per_client_ip_burst: 250
     per_client_ip_ttl_minutes: 60
     gzip_compression_type: ""                 # gzip compression services, values: (default, best-speed, best-compression) blank = turn off
     gzip_exclude_extensions:
@@ -152,9 +152,9 @@ routes:
     cors_max_age_minutes: 0
   - route_group_name: auth                    # base = web server root folder; other values = web server route group name
     jwt_auth_secured: true                   # indicates if this route group is jwt auth secured (assume jwt auth is setup)
-    max_concurrent_request_limit: 100         # max hit rate limit, 0 = turn off
-    per_client_ip_qps: 100                    # per client ip qps rate limit, 0 = turn off
-    per_client_ip_burst: 100
+    max_concurrent_request_limit: 250         # max hit rate limit, 0 = turn off
+    per_client_ip_qps: 250                    # per client ip qps rate limit, 0 = turn off
+    per_client_ip_burst: 250
     per_client_ip_ttl_minutes: 60
     gzip_compression_type: ""                 # gzip compression services, values: (default, best-speed, best-compression) blank = turn off
     gzip_exclude_extensions:
